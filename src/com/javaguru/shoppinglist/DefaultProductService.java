@@ -18,6 +18,16 @@ public class DefaultProductService implements ProductService {
 
     @Override
     public Long create(Product product) {
+
+        validateProduct(product);
+
+        product.setId(PRODUCT_ID_SEQUENCE);
+
+        database.put(PRODUCT_ID_SEQUENCE, product);
+        return PRODUCT_ID_SEQUENCE++;
+    }
+
+    private void validateProduct(Product product) {
         if (product == null) {
             throw new IllegalArgumentException("Cannot be null");
         }
@@ -33,11 +43,5 @@ public class DefaultProductService implements ProductService {
         if (product.getDiscount().compareTo(new BigDecimal(100)) > 0) {
             throw new IllegalArgumentException("Discount can not be more than 100%");
         }
-
-        product.setId(PRODUCT_ID_SEQUENCE);
-
-        database.put(PRODUCT_ID_SEQUENCE, product);
-        return PRODUCT_ID_SEQUENCE++;
     }
-
 }
