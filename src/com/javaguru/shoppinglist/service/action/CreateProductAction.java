@@ -1,4 +1,7 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.service.action;
+
+import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.service.ProductService;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -9,7 +12,7 @@ public class CreateProductAction implements Action {
 
     private final ProductService productService;
 
-    CreateProductAction(ProductService productService) {
+    public CreateProductAction(ProductService productService) {
         this.productService = productService;
     }
 
