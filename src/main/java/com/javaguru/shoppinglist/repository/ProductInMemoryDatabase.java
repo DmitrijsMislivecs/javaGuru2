@@ -9,7 +9,6 @@ public class ProductInMemoryDatabase {
     private Map<Long, Product> products = new HashMap<>();
     private Long PRODUCT_ID_SEQUENCE = 0L;
 
-
     public Long insert(Product product) {
         product.setId(PRODUCT_ID_SEQUENCE);
         products.put(PRODUCT_ID_SEQUENCE, product);
