@@ -2,6 +2,7 @@ package com.javaguru.shoppinglist.service.action;
 
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.service.ProductService;
+import com.javaguru.shoppinglist.service.validation.ProductValidationService;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -11,9 +12,11 @@ public class CreateProductAction implements Action {
     private static final String ACTION_NAME = "Create Product";
 
     private final ProductService productService;
+    private ProductValidationService productValidationService;
 
-    public CreateProductAction(ProductService productService) {
+    public CreateProductAction(ProductService productService, ProductValidationService productValidationService) {
         this.productService = productService;
+        this.productValidationService = productValidationService;
     }
 
     @Override
@@ -38,6 +41,7 @@ public class CreateProductAction implements Action {
         product.setDescription(description);
 
         try {
+            productValidationService.validate(product);
             Long response = productService.create(product);
             System.out.println("Response: " + response);
         } catch (Exception e) {
