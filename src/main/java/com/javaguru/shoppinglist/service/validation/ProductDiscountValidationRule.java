@@ -9,7 +9,7 @@ public class ProductDiscountValidationRule implements ProductValidationRule {
     @Override
     public void validate(Product product) {
         if ((product.getDiscount().compareTo(new BigDecimal(100)) > 0) || (product.getDiscount().compareTo(new BigDecimal(0)) < 0))  {
-            throw new ProductValidationException("Discount can not be less than 0 or more1 than 100%");
+            throw new ProductValidationException("Discount can not be less than 0 or more than 100%");
         }
 
         if (product.getPrice().compareTo(new BigDecimal(20)) < 0) {
