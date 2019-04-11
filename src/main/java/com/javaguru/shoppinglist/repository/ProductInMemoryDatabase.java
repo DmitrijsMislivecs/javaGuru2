@@ -18,4 +18,13 @@ public class ProductInMemoryDatabase {
     public Product findProductById(Long id) {
         return products.get(id);
     }
+
+    public boolean isExistingProductByName(String name) {
+        for (Product p : products.values()) {
+            if (name.equals(p.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
