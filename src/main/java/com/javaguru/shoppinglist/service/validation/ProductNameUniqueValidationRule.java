@@ -1,14 +1,14 @@
 package com.javaguru.shoppinglist.service.validation;
 
 import com.javaguru.shoppinglist.domain.Product;
-import com.javaguru.shoppinglist.repository.ProductInMemoryDatabase;
+import com.javaguru.shoppinglist.repository.ProductDataBase;
 
 
 public class ProductNameUniqueValidationRule implements ProductValidationRule {
 
-    private final ProductInMemoryDatabase database;
+    private final ProductDataBase database;
 
-    ProductNameUniqueValidationRule(ProductInMemoryDatabase database) {
+    ProductNameUniqueValidationRule(ProductDataBase database) {
         this.database = database;
     }
 
