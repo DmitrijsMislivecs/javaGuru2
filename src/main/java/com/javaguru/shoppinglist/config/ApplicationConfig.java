@@ -13,9 +13,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import java.util.Properties;
-
 import javax.sql.DataSource;
 
 @Configuration
@@ -49,7 +47,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public Properties hibernateProperties (
+    public Properties hibernateProperties(
             @Value("${hibernate.dialect}") String dialect,
             @Value("${hibernate.show_sql}") boolean showSql,
             @Value("${hibernate.format_sql}") boolean formatSql,
