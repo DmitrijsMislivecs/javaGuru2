@@ -3,7 +3,9 @@ package com.javaguru.shoppinglist.service.validation;
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.repository.ProductInMemoryDatabase;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductNameUniqueValidationRule implements ProductValidationRule {
 
     private final ProductInMemoryDatabase database;
