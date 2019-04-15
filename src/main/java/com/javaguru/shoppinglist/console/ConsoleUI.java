@@ -1,7 +1,6 @@
 package com.javaguru.shoppinglist.console;
 
 import com.javaguru.shoppinglist.service.action.Action;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
