@@ -3,6 +3,9 @@ package com.javaguru.shoppinglist.service;
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.repository.ProductInMemoryDatabase;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DefaultProductService implements ProductService {
     private ProductInMemoryDatabase database;
 

@@ -3,8 +3,11 @@ package com.javaguru.shoppinglist.service.action;
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.service.ProductService;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
+@Component
 public class FindProductByIdAction implements Action {
 
     private static final String ACTION_NAME = "Find by ID";
