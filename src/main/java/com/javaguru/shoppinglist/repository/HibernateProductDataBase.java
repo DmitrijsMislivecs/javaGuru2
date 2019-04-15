@@ -40,9 +40,9 @@ public class HibernateProductDataBase implements ProductDataBase {
 
     @Override
     public boolean isExistingProductByName(String name) {
-        String query = "select case when count(*) > 0 " +
+        String query = "select case when count(*)> 0 " +
                 "then true else false end " +
-                "from Product where name = " + name;
+                "from Product p where p.name='" + name +"'";
         return (boolean) sessionFactory.getCurrentSession().createQuery(query)
                 .setMaxResults(1)
                 .uniqueResult();
