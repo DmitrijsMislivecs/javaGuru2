@@ -1,6 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class ProductDiscountValidationRule implements ProductValidationRule {
 
     @Override
-    public void validate(Product product) {
+    public void validate(ProductDTO product) {
         if ((product.getDiscount().compareTo(new BigDecimal(100)) > 0) || (product.getDiscount().compareTo(new BigDecimal(0)) < 0))  {
             throw new ProductValidationException("Discount can not be less than 0 or more than 100%");
         }

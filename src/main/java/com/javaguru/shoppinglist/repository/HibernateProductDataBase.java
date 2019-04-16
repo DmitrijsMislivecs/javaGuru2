@@ -25,9 +25,14 @@ public class HibernateProductDataBase implements ProductDataBase {
     }
 
     @Override
-    public Long insert(Product product) {
+    public Long save(Product product) {
         sessionFactory.getCurrentSession().save(product);
         return product.getId();
+    }
+
+    @Override
+    public void update(Product product) {
+        sessionFactory.getCurrentSession().saveOrUpdate(product);
     }
 
     @Override
@@ -46,5 +51,10 @@ public class HibernateProductDataBase implements ProductDataBase {
         return (boolean) sessionFactory.getCurrentSession().createQuery(query)
                 .setMaxResults(1)
                 .uniqueResult();
+    }
+
+    @Override
+    public void delete(Product product) {
+        sessionFactory.getCurrentSession().delete(product);
     }
 }
