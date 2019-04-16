@@ -1,14 +1,10 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
 
 public class ProductNotNullValidationRuleTest {
 
@@ -17,7 +13,7 @@ public class ProductNotNullValidationRuleTest {
 
     private ProductNotNullValidationRule victim = new ProductNotNullValidationRule();
 
-    private Product input;
+    private ProductDTO input;
 
     @Test
     public void shouldThrowProductNotNullValidationException() {
@@ -29,13 +25,13 @@ public class ProductNotNullValidationRuleTest {
 
     @Test
     public void shouldValidateSuccess() {
-        input = product("New Product");
+        input = productDTO("New Product");
         victim.validate(input);
     }
 
-    private Product product(String name) {
-        Product product = new Product();
-        product.setName(name);
-        return product;
+    private ProductDTO productDTO(String name) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName(name);
+        return productDTO;
     }
 }

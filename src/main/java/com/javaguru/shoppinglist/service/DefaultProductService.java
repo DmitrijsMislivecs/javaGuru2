@@ -42,4 +42,9 @@ public class DefaultProductService {
         Product product = productConverter.convert(productDTO);
         database.update(product);
     }
+
+    public void deleteProduct(Long id) {
+        database.findProductById(id)
+        .ifPresent(database::delete);
+    }
 }

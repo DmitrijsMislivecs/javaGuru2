@@ -6,6 +6,7 @@ import com.javaguru.shoppinglist.service.DefaultProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,12 @@ public class ProductController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @Validated({ProductDTO.Update.class}) @RequestBody ProductDTO productDTO) {
         productService.updateProduct(productDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        productService.deleteProduct(id);
     }
 
     @GetMapping("/{id}")
