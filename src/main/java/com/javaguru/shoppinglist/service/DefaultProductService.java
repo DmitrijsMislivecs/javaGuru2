@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
+import javax.transaction.Transactional;
+
 @Service
 public class DefaultProductService {
 
@@ -43,6 +45,7 @@ public class DefaultProductService {
         database.update(product);
     }
 
+    @Transactional
     public void deleteProduct(Long id) {
         database.findProductById(id)
         .ifPresent(database::delete);
