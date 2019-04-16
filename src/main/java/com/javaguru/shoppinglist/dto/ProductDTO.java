@@ -15,9 +15,10 @@ public class ProductDTO {
     private Long id;
     @NotEmpty(groups = {Update.class, Create.class}, message = "Name must be not blank.")
     private String name;
-    @NotEmpty(groups = {Create.class}, message = "Price must be > 0")
+    @NotNull(groups = {Create.class}, message = "Price must be > 0")
     private BigDecimal price;
     private String category;
+    @NotNull(groups = {Create.class}, message = "Discount must be > 0")
     private BigDecimal discount;
     private String description;
 

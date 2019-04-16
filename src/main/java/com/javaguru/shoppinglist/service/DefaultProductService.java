@@ -37,4 +37,9 @@ public class DefaultProductService {
         Product product = productConverter.convert(productDTO);
         return database.save(product);
     }
+
+    public void updateProduct(ProductDTO productDTO) {
+        Product product = productConverter.convert(productDTO);
+        database.update(product);
+    }
 }
