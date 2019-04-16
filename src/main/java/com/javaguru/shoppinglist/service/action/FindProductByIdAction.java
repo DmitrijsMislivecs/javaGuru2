@@ -23,7 +23,7 @@ public class FindProductByIdAction implements Action {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter id: ");
         Long id = scanner.nextLong();
-        Optional<Object> response = productService.findProductById(id);
+        Optional<Object> response = Optional.ofNullable(productService.findProductById(id));
         System.out.println("Response: " + response);
     }
 

@@ -31,7 +31,7 @@ public class HibernateProductDataBase implements ProductDataBase {
     }
 
     @Override
-    public Optional<Object> findProductById(Long id) {
+    public Optional<Product> findProductById(Long id) {
         Product product = (Product) sessionFactory.getCurrentSession().createCriteria(Product.class)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();

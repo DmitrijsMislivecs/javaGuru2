@@ -22,7 +22,7 @@ public class ProductInMemoryDatabase implements ProductDataBase {
     }
 
     @Override
-    public Optional<Object> findProductById(Long id) {
+    public Optional<Product> findProductById(Long id) {
         return Optional.ofNullable(products.get(id));
     }
 

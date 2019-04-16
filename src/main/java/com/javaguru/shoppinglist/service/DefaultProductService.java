@@ -6,8 +6,6 @@ import com.javaguru.shoppinglist.repository.ProductDataBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 public class DefaultProductService implements ProductService {
 
@@ -19,11 +17,9 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public Optional<Object> findProductById(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("Id must be not null");
-        }
-        return database.findProductById(id);
+    public Product findProductById(Long id) {
+        return database.findProductById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found. Id: " + id));
     }
 
     @Override

@@ -45,9 +45,9 @@ public class DefaultProductDataBase implements ProductDataBase {
     }
 
     @Override
-    public Optional<Object> findProductById(Long id) {
+    public Optional<Product> findProductById(Long id) {
         String query = "select * from products where id = " + id;
-        List products = jdbcTemplate.query(query,
+        List<Product> products = jdbcTemplate.query(query,
                 new BeanPropertyRowMapper<>(Product.class));
         if (!products.isEmpty()) {
             return Optional.ofNullable(products.get(0));

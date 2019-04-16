@@ -8,7 +8,7 @@ public interface ProductDataBase {
 
     Long insert(Product product);
 
-    Optional<Object> findProductById(Long id);
+    Optional<Product> findProductById(Long id);
 
     boolean isExistingProductByName(String name);
 
