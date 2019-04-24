@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class ApplicationConfig {
 
-    @Bean
+  @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
