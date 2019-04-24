@@ -1,10 +1,10 @@
 package com.javaguru.shoppinglist.service.action;
 
-import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.service.ProductService;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 @Component
@@ -23,7 +23,7 @@ public class FindProductByIdAction implements Action {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter id: ");
         Long id = scanner.nextLong();
-        Product response = productService.findProductById(id);
+        Optional<Object> response = productService.findProductById(id);
         System.out.println("Response: " + response);
     }
 

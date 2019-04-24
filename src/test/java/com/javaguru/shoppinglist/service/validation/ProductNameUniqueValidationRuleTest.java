@@ -1,7 +1,7 @@
 package com.javaguru.shoppinglist.service.validation;
 
 import com.javaguru.shoppinglist.domain.Product;
-import com.javaguru.shoppinglist.repository.ProductInMemoryDatabase;
+import com.javaguru.shoppinglist.repository.ProductDataBase;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 public class ProductNameUniqueValidationRuleTest {
 
     @Mock
-    private ProductInMemoryDatabase database;
+    private ProductDataBase database;
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
