@@ -1,9 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-//import com.javaguru.shoppinglist.domain.Product;
-
 import com.javaguru.shoppinglist.dto.ProductDTO;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Spy;
