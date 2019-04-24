@@ -1,6 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 import com.javaguru.shoppinglist.repository.ProductDataBase;
 
 import org.junit.Rule;
@@ -32,12 +32,12 @@ public class ProductNameUniqueValidationRuleTest {
         expectedException.expect(ProductValidationException.class);
         expectedException.expectMessage("Product name should be unique!");
 
-        victim.validate(product());
+        victim.validate(productDTO());
     }
 
-    private Product product(){
-        Product product = new Product();
-        product.setName("test");
-        return product;
+    private ProductDTO productDTO(){
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName("test");
+        return productDTO;
     }
 }

@@ -1,6 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,11 +16,11 @@ public class ProductDiscountValidationRuleTest {
 
     private ProductDiscountValidationRule victim = new ProductDiscountValidationRule();
 
-    private Product input;
+    private ProductDTO input;
 
     @Test
     public void shouldThrowProductDiscountValidationException() {
-        input = product(new BigDecimal(101));
+        input = productDTO(new BigDecimal(101));
 
         expectedException.expect(ProductValidationException.class);
         expectedException.expectMessage("Discount can not be less than 0 or more than 100%");
@@ -30,15 +30,15 @@ public class ProductDiscountValidationRuleTest {
 
     @Test
     public void shouldValidateSuccess() {
-        input = product(new BigDecimal(1));
+        input = productDTO(new BigDecimal(1));
 
         victim.validate(input);
     }
 
-    private Product product(BigDecimal discount) {
-        Product product = new Product();
-        product.setDiscount(discount);
-        product.setPrice(new BigDecimal(20));
-        return product;
+    private ProductDTO productDTO(BigDecimal discount) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setDiscount(discount);
+        productDTO.setPrice(new BigDecimal(20));
+        return productDTO;
     }
 }

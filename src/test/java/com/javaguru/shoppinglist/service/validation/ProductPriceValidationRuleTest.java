@@ -1,43 +1,43 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
-
-import org.junit.Rule;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ProductPriceValidationRuleTest {
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
-    private ProductPriceValidationRule victim = new ProductPriceValidationRule();
+    @Spy
+    private ProductPriceValidationRule victim;
 
-    private Product input;
+    private ProductDTO input;
 
     @Test
     public void shouldThrowProductPriceValidationException() {
-        input = product(new BigDecimal(0));
+        input = productDTO(new BigDecimal(0));
 
-        expectedException.expect(ProductValidationException.class);
-        expectedException.expectMessage("Product price should be more than 0");
-
-        victim.validate(input);
+        assertThatThrownBy(() -> victim.validate(input))
+                .isInstanceOf(ProductValidationException.class)
+                .hasMessage("Product price should be more than 0");
     }
 
     @Test
     public void shouldValidateSuccess() {
-        input = product(new BigDecimal(1));
+        input = productDTO(new BigDecimal(1));
+
         victim.validate(input);
     }
 
-    private Product product(BigDecimal price) {
-        Product product = new Product();
-        product.setPrice(price);
-        return product;
+    private ProductDTO productDTO(BigDecimal price) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setPrice(price);
+        return productDTO;
     }
 }

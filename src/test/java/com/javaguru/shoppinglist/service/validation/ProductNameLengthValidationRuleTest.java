@@ -1,6 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,11 +13,11 @@ public class ProductNameLengthValidationRuleTest {
 
     private ProductNameLengthValidationRule victim = new ProductNameLengthValidationRule();
 
-    private Product input;
+    private ProductDTO input;
 
     @Test
     public void shouldThrowProductNameLengthValidationException() {
-        input = product("a");
+        input = productDTO("a");
 
         expectedException.expect(ProductValidationException.class);
         expectedException.expectMessage("Product name length can not be less 3 symbols or more than 32");
@@ -27,14 +27,14 @@ public class ProductNameLengthValidationRuleTest {
 
     @Test
     public void shouldValidateSuccess() {
-        input = product("test");
+        input = productDTO("test");
 
         victim.validate(input);
     }
 
-    private Product product(String name) {
-        Product product = new Product();
-        product.setName(name);
-        return product;
+    private ProductDTO productDTO(String name) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName(name);
+        return productDTO;
     }
 }

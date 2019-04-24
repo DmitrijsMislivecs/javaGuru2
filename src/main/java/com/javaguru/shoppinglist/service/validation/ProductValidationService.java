@@ -1,7 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
-import com.javaguru.shoppinglist.repository.ProductDataBase;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.Set;
@@ -16,7 +15,7 @@ public class ProductValidationService {
         this.validationRules = validationRules;
     }
 
-    public void validate(Product product) {
-        validationRules.forEach(s -> s.validate(product));
+    public void validate(ProductDTO productDTO) {
+        validationRules.forEach(s -> s.validate(productDTO));
     }
 }

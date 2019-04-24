@@ -1,6 +1,6 @@
 package com.javaguru.shoppinglist.service.validation;
 
-import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.dto.ProductDTO;
 
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class ProductNotNullValidationRule implements ProductValidationRule {
 
     @Override
-    public void validate(Product product) {
+    public void validate(ProductDTO product) {
         if (product == null) {
             throw new ProductValidationException("Product cannot be null");
         }
