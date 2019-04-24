@@ -1,10 +1,8 @@
 package com.javaguru.shoppinglist.service.validation;
 
 import com.javaguru.shoppinglist.dto.ProductDTO;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.Set;
 
 @Component
